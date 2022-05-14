@@ -1,22 +1,45 @@
-<header class="masthead" [style.background-image]="safeBackgroudImage">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <ng-container *ngIf="siteHeading; else postHeading"
-                    ><div class="site-heading">
-                        <h1>{{heading}}</h1>
-                        <span class="subheading">{{subHeading}}</span>
-                    </div></ng-container
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" routerLink="/">Start Bootstrap</a>
+            <button class="navbar-toggler navbar-toggler-right" 
+                type="button" 
+                (click)="isMenuCollapsed = !isMenuCollapsed" 
+                aria-controls="navbarResponsive" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+                <fa-icon class="ml-1" 
+                    [icon]="faBars">
+                </fa-icon>
+            </button>
+            <div class="collapse navbar-collapse"
+                [ngbCollapse]="isMenuCollapsed"
+                [ngStyle]="{'flex-direction':'row-reverse'}"
                 >
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link icon" 
+                            href="https://github.com/StartBootstrap/sb-clean-blog-angular" 
+                            target="_blank">
+                            <fa-icon 
+                                [icon]="faGithub">
+                            </fa-icon>
+                        </a>
+                    </li>
+                    <li class="nav-item" *ngIf="isLoggedIn &amp;&amp; isOnPost">
+                        <a class="nav-link pointer" 
+                            (click)="editPost()"
+                            >Edit Post
+                        </a>
+                    </li>
+                </ul>
+                <form class="form-inline ml-lg-2" 
+                    *ngIf="isLoggedIn">
+                        <a class="btn btn-primary" routerLink="/new">New Post</a>
+                </form>
             </div>
         </div>
-    </div>
+    </nav>
 </header>
-<ng-template #postHeading
-    ><div class="post-heading">
-        <h1>{{heading}}</h1>
-        <h2 class="subheading">{{subHeading}}</h2>
-        <span class="meta">{{meta}}</span>
-    </div></ng-template
->

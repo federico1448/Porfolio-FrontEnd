@@ -1,5 +1,11 @@
-import { Component, OnInit,Input,ChangeDetectionStrategy } from '@angular/core';
-import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { Component, OnInit,OnDestroy, } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import {faBars} from '@fortawesome/free-solid-svg-icons';
+//import { AuthUtilsService } from '@modules/auth/services';
+//import { NavigationService } from '@modules/navigation/services';
+
 
 @Component({
   selector: 'app-header',
@@ -7,18 +13,40 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Input() backgroundImage!: string;
-  @Input() heading!: string;
-  @Input() subHeading!: string;
-  @Input() meta!: string;
-  @Input() siteHeading = false;
+  subscription: Subscription = new Subscription();
+  isLoggedIn = false;
+  isOnPost = false;
+  isMenuCollapsed = false;
+  faGithub=faGithub;
+  faBars=faBars;
 
-  safeBackgroudImage!: SafeStyle;
-
-  constructor(private domSanitizer: DomSanitizer) { }
+  constructor(
+    //private navigationService: NavigationService,
+    //private authUtilsService: AuthUtilsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    this.safeBackgroudImage = this.domSanitizer.bypassSecurityTrustStyle(this.backgroundImage);
+//    this.subscription.add(
+//      this.navigationService.currentComponent$().subscribe(currentComponentName => {
+//          this.isOnPost = currentComponentName === 'PostComponent';
+//      })
+//  );
+//  this.subscription.add(
+//      this.authUtilsService.isLoggedIn$().subscribe(isLoggedIn => {
+//          this.isLoggedIn = isLoggedIn;
+//      })
+//  );
+
+ // this.authUtilsService.checkToken();
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+}
+
+editPost() {
+//    this.router.navigateByUrl(`/edit/${this.route.snapshot.params.post}`);
+}
 }
