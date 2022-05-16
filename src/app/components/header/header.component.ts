@@ -3,8 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import {faBars} from '@fortawesome/free-solid-svg-icons';
-//import { AuthUtilsService } from '@modules/auth/services';
-//import { NavigationService } from '@modules/navigation/services';
+import { ModalService } from '../../services/common/modal.service';
 
 
 @Component({
@@ -13,7 +12,7 @@ import {faBars} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  subscription: Subscription = new Subscription();
+  subscription?: Subscription;
   isLoggedIn = false;
   isOnPost = false;
   isMenuCollapsed = false;
@@ -21,32 +20,20 @@ export class HeaderComponent implements OnInit {
   faBars=faBars;
 
   constructor(
-    //private navigationService: NavigationService,
-    //private authUtilsService: AuthUtilsService,
     private route: ActivatedRoute,
-    private router: Router
-  ) { }
-
-  ngOnInit(): void {
-//    this.subscription.add(
-//      this.navigationService.currentComponent$().subscribe(currentComponentName => {
-//          this.isOnPost = currentComponentName === 'PostComponent';
-//      })
-//  );
-//  this.subscription.add(
-//      this.authUtilsService.isLoggedIn$().subscribe(isLoggedIn => {
-//          this.isLoggedIn = isLoggedIn;
-//      })
-//  );
-
- // this.authUtilsService.checkToken();
+    private router: Router,
+    public modalService: ModalService
+  ) { 
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-}
+  ngOnInit(): void {
+  }
 
-editPost() {
-//    this.router.navigateByUrl(`/edit/${this.route.snapshot.params.post}`);
-}
+  showModalService(id:string){
+    this.modalService.open(id);
+  }
+
+  closeModalService(id:string){
+    this.modalService.close(id);
+  }
 }

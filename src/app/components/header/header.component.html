@@ -17,8 +17,12 @@
                 [ngStyle]="{'flex-direction':'row-reverse'}"
                 >
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/about">About</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link icon" 
                             href="https://github.com/StartBootstrap/sb-clean-blog-angular" 
@@ -28,18 +32,27 @@
                             </fa-icon>
                         </a>
                     </li>
-                    <li class="nav-item" *ngIf="isLoggedIn &amp;&amp; isOnPost">
-                        <a class="nav-link pointer" 
-                            (click)="editPost()"
-                            >Edit Post
-                        </a>
-                    </li>
+                    <app-button 
+                        color="#f8f9fa" 
+                        text="Login"
+                        (bntClick)="showModalService('modal-3')"
+                    ></app-button>
                 </ul>
-                <form class="form-inline ml-lg-2" 
-                    *ngIf="isLoggedIn">
-                        <a class="btn btn-primary" routerLink="/new">New Post</a>
-                </form>
             </div>
         </div>
     </nav>
 </header>
+<app-modal 
+    text="Login"
+    id="modal-3" >
+    <app-button 
+        text="Close"
+        color="#f8f9fa"
+        (bntClick)="closeModalService('modal-3')"
+        >
+    </app-button>
+  </app-modal>
+
+
+
+

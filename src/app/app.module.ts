@@ -7,20 +7,25 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ButtonComponent } from './components/common/button/button.component';
+import { ModalModule} from '../app/modules/modal/modal.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgbModule
+    NgbModule,
+    ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
