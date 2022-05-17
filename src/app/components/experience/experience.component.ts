@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Experiencia } from 'src/app/mockExperiencia';
-import { Experience } from 'src/app/expercience';
+import { Experiencia } from 'src/app/mocks/mockExperiencia';
+import { Experience } from 'src/app/interfaces/expercience';
 
 @Component({
   selector: 'app-experience',

@@ -1,0 +1,12 @@
+<div class="container" >
+    <hr class="solid">
+    <h2>{{title}}</h2>
+    <p> </p>
+    <div class="row">
+        <app-skill-item  
+            class="col-4 d-flex justify-content-center"
+            *ngFor="let skill of skills"
+            [skillvalue]="skill"
+        ></app-skill-item>
+    </div>
+</div>

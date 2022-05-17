@@ -12,6 +12,9 @@ import { ModalModule} from '../app/modules/modal/modal.module';
 import { BannerComponent } from './components/common/banner/banner.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
 import { ExperienceComponent } from './components/experience/experience.component';
+import { SkillItemComponent } from './components/common/skill-item/skill-item.component';
+import { SkillComponent } from './components/skill/skill.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -22,13 +25,29 @@ import { ExperienceComponent } from './components/experience/experience.componen
     BannerComponent,
     PresentationComponent,
     ExperienceComponent,
+    SkillItemComponent,
+    SkillComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     NgbModule,
-    ModalModule
+    ModalModule,
+    NgCircleProgressModule.forRoot({
+      backgroundColor: "teal",
+      backgroundPadding: 8,
+      radius: 60,
+      space: -15,
+      maxPercent: 100,
+      unitsColor: "#ffffff",
+      outerStrokeWidth: 7.5,
+      outerStrokeColor: "white",
+      innerStrokeColor: "teal",
+      innerStrokeWidth: 3,
+      titleColor: "#ffffff",
+      subtitleColor: "#ffffff"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
