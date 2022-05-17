@@ -15,10 +15,11 @@ export class ModalComponent implements OnInit {
   @Input() password: string="";
   @Output() showModal: EventEmitter<string> = new EventEmitter()
   private element: any;
+  closeResult = '';
 
   constructor(
       private modalService: ModalService, 
-      private el: ElementRef
+      private el: ElementRef,
     //  private authService: AuthService
       ) {  
         this.element = el.nativeElement;

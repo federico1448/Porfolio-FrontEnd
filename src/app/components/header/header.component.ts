@@ -35,17 +35,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showModalService(idimg:string,idlink:string,idButton:string, id:string){
+  showModalService(idimg:string, id:string){
     this.modalService.open(id);
-    this.gui.blockButton(idButton);
     this.gui.blockButton(idimg);
-    this.gui.blockButton(idlink);
+
   }
 
-  closeModalService(idimg:string,idlink:string,idButton:string, id:string){
+  closeModalService(idimg:string, id:string){
     this.modalService.close(id);
-    this.gui.showButton(idButton);
     this.gui.showButton(idimg);
-    this.gui.showButton(idlink);
   }
 }

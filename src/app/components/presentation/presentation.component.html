@@ -1,1 +1,14 @@
-<p>presentation works!</p>
+<div class="container mytema">
+    <div class="row">
+        <div class="col-3">
+            <img src={{image}}/>
+            <div *ngFor="let titulo of titulos">
+                <p>{{titulo}}</p>
+            </div>
+        </div>
+        <div class="col-9 test">
+            <h2 class="subheading">{{title}}</h2>
+            <span class="meta">{{desc}}</span>
+        </div>
+    </div>
+</div>
