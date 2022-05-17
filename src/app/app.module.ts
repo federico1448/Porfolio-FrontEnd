@@ -9,6 +9,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ButtonComponent } from './components/common/button/button.component';
 import { ModalModule} from '../app/modules/modal/modal.module';
+import { BannerComponent } from './components/common/banner/banner.component';
+import { PresentationComponent } from './components/presentation/presentation.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ModalModule} from '../app/modules/modal/modal.module';
     HeaderComponent,
     FooterComponent,
     ButtonComponent,
+    BannerComponent,
+    PresentationComponent,
   ],
   imports: [
     BrowserModule,
