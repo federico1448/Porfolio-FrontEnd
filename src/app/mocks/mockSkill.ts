@@ -22,12 +22,12 @@ export const SKILL:Skill []=[
         porcent:50
     },  
     {
-        id:4,
+        id:5,
         name:'Desarrollo de sorfware',
         porcent:40
     },
     {
-        id:4,
+        id:6,
         name:'Coordinacion de equipos',
         porcent:75
     }

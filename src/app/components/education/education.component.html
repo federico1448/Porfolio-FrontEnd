@@ -1,0 +1,11 @@
+<div class="container" >
+    <hr class="solid">
+    <h2>{{title}}</h2>
+    <p> </p>
+    <div class="row">
+       <app-education-item class="col-12 d-flex justify-content-center"
+            *ngFor="let educacion of educacion"
+            [educacionvalue]="educacion"
+       ></app-education-item> 
+    </div>
+</div>
