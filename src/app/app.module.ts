@@ -11,6 +11,7 @@ import { ButtonComponent } from './components/common/button/button.component';
 import { ModalModule} from '../app/modules/modal/modal.module';
 import { BannerComponent } from './components/common/banner/banner.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
+import { ExperienceComponent } from './components/experience/experience.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PresentationComponent } from './components/presentation/presentation.co
     ButtonComponent,
     BannerComponent,
     PresentationComponent,
+    ExperienceComponent,
   ],
   imports: [
     BrowserModule,

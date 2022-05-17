@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <hr class="solid">
+        <h2>{{title}}</h2>
+        <p> </p>
+        <div class="container">
+            <div class="row" 
+                *ngFor="let experiencia of experiencias"
+            >
+                <div class="col-3">
+                    <h6>{{experiencia.periodo}}</h6>  
+                    <img src={{experiencia.logo}}>
+                </div>
+                <div class="col-9 test space">
+                    <h4>{{experiencia.name}}</h4>
+                    <p>{{experiencia.desc}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
