@@ -1,7 +1,8 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" routerLink="/">Start Bootstrap</a>
+            <img src="imagePath"  />
+            <a class="navbar-brand" routerLink="/" >{{icono}}</a>
             <button class="navbar-toggler navbar-toggler-right" 
                 type="button" 
                 (click)="isMenuCollapsed = !isMenuCollapsed" 
@@ -32,10 +33,10 @@
                             </fa-icon>
                         </a>
                     </li>
-                    <app-button 
+                    <app-button id="btn-login" 
                         color="#f8f9fa" 
                         text="Login"
-                        (bntClick)="showModalService('modal-3')"
+                        (bntClick)="showModalService('btn-login','modal-3')"
                     ></app-button>
                 </ul>
             </div>
@@ -48,7 +49,7 @@
     <app-button 
         text="Close"
         color="#f8f9fa"
-        (bntClick)="closeModalService('modal-3')"
+        (bntClick)="closeModalService('btn-login','modal-3')"
         >
     </app-button>
   </app-modal>
