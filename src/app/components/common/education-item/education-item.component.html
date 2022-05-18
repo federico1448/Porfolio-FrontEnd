@@ -1,7 +1,7 @@
-<div class="col-3  d-flex justify-content-center">
-    <img src={{educacionvalue.logo}}>
+<div class="col-3">
+    <img src={{educacionvalue.logo}} *ngIf="educacionvalue.logo!=''">
 </div>
-<div class="col-9 space">
+<div class="col-9">
     <p>{{educacionvalue.year}}</p>
     <h4>{{educacionvalue.name}}</h4>
     <p>{{educacionvalue.site}}</p>

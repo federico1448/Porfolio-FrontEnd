@@ -4,17 +4,12 @@
         <h2>{{title}}</h2>
         <p> </p>
         <div class="container">
-            <div class="row" 
-                *ngFor="let experiencia of experiencias"
-            >
-                <div class="col-3">
-                    <h6>{{experiencia.periodo}}</h6>  
-                    <img src={{experiencia.logo}}>
-                </div>
-                <div class="col-9 test space">
-                    <h4>{{experiencia.name}}</h4>
-                    <p>{{experiencia.desc}}</p>
-                </div>
+            <div class="row" >
+                <app-experience-item 
+                    class="col-12 d-flex justify-content-center space"
+                    *ngFor="let experiencia of experiencias"
+                    [expItem]="experiencia"
+                ></app-experience-item>
             </div>
         </div>
     </div>

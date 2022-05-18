@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
+import { Proyects } from 'src/app/interfaces/proyect';
+import { PROYECT } from 'src/app/mocks/mockProyecto';
 
 @Component({
   selector: 'app-proyecto-item',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./proyecto-item.component.css']
 })
 export class ProyectoItemComponent implements OnInit {
-
+  @Input() proyItem:Proyects=PROYECT[0];
   constructor() { }
 
   ngOnInit(): void {

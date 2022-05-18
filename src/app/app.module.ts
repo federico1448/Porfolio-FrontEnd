@@ -19,6 +19,7 @@ import { EducationComponent } from './components/education/education.component';
 import { EducationItemComponent } from './components/common/education-item/education-item.component';
 import { ProyectoItemComponent } from './components/common/proyecto-item/proyecto-item.component';
 import { ProyectComponent } from './components/proyect/proyect.component';
+import { ExperienceItemComponent } from './components/common/experience-item/experience-item.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ProyectComponent } from './components/proyect/proyect.component';
     EducationItemComponent,
     ProyectoItemComponent,
     ProyectComponent,
+    ExperienceItemComponent,
   ],
   imports: [
     BrowserModule,
