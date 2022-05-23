@@ -1,10 +1,9 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Component, OnInit,EventEmitter,Output} from '@angular/core';
+import { Subscription, Observable ,of as observableOf} from 'rxjs';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import {faBars} from '@fortawesome/free-solid-svg-icons';
-import { ModalService } from '../../services/common/modal.service';
-import { GuiService} from '../../services/common/gui.service';
+import { AuthService } from 'src/app/services/common/auth.service';
+import { ElementSchemaRegistry } from '@angular/compiler';
 
 
 @Component({
@@ -23,26 +22,44 @@ export class HeaderComponent implements OnInit {
   faBars=faBars;
   imagePath="assets/argProg.jpg";
 
+  //login
+  loginfail?:Observable<boolean>;
+  Logintitle:string="Login";
+
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private modalService: ModalService,
-    private gui: GuiService
+    private autenticadion:AuthService
   ) { 
   }
 
   ngOnInit(): void {
+    this.loginfail=this.autenticadion.logintest();
+    this.loginfail.subscribe( login=>{
+      console.log("login fue exitoso (POPUP) "+ login) 
+      this.loginfail=observableOf(login);
+      if(!login)
+        this.Logintitle="Login";
+      else
+        this.Logintitle="LogOut";
+      })
   }
 
-  showModalService(idimg:string, id:string){
-    this.modalService.open(id);
-    this.gui.blockButton(idimg);
+//  propagarloginInHeader(loginmensaje:boolean){
+//    console.log("login in header: "+ loginmensaje);
+//    this.loginresult=loginmensaje;
+//    this.propagarLoginHeader.emit(loginmensaje);
+//    if(!loginmensaje){
+//      this.loginfailed=true;
+//    }
+//  }
 
-  }
+//  showModalService(idimg:string, id:string){
+//    this.modalService.open(id);
+//    this.gui.blockButton(idimg);
+//  }
 
-  closeModalService(idimg:string, id:string){
-    this.modalService.close(id);
-    this.gui.showButton(idimg);
-  }
+//  closeModalService(idimg:string, id:string){
+//    this.modalService.close(id);
+//    this.gui.showButton(idimg);
+//  }
 }

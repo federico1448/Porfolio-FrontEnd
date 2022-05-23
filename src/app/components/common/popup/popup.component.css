@@ -1,0 +1,9 @@
+.centro{
+    width: 50rem;
+    text-align: center;
+    display: initial;
+}
+
+button{
+    display: none;
+}

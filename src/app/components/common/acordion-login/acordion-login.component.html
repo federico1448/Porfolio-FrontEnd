@@ -1,0 +1,98 @@
+<ul 
+  ngbNav 
+  #nav="ngbNav" 
+  class="nav-tabs"
+  >
+    <div class="row">
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <button 
+              type="button" 
+              class="btn btn-outline-light" 
+              (click)="changestatus(loginresult)"
+              ngbDropdownToggle>{{textbtn}}</button>
+            <div ngbDropdownMenu 
+              [style.display]="loginresult ? 'block':'none'"
+              [ngStyle]="{'padding': '0.5rem 0.6rem 0rem 0.6rem'}">
+              <form class="px-1 py-3" id="formlogout"
+                [formGroup]="profileForm" 
+                [style.display]="loginform ? 'none':'block'"  
+                (ngSubmit)="onSubmit()"      
+              >
+                <h6>{{textbtn}}</h6>
+                <p></p>
+                <div class="row">                 
+                    <button 
+                      type="submit" 
+                      class="btn btn-primary btn-sm btn-block"
+                      >{{textbtn}}
+                    </button>
+                </div>
+              </form> 
+              <form class="px-1 py-3" id="formLogin"
+                [formGroup]="profileForm" 
+                (ngSubmit)="onSubmit()"
+                [style.display]="loginform ? 'block':'none'"
+              >
+               <h6>{{textbtn}}</h6>
+                <div class="form-group mb-3">
+                    <input 
+                        id="name" 
+                        type="email" 
+                        class="form-control"
+                        formControlName="name"
+                        placeholder="Username"
+                    >
+                    <small 
+                        id="nameHelp" 
+                        class="form-text text-muted"
+                        >Can use federico how example.
+                    </small>
+                </div>
+                <p> </p>
+                <div class="form-group mb-3">
+                    <input 
+                        id="password" 
+                        type="password" 
+                        class="form-control"  
+                        formControlName="password"
+                        placeholder="Password"
+                    >
+                  <small 
+                    id="nameHelpass" 
+                    class="form-text text-muted"
+                    >Can use fede123 how example.
+                  </small>
+                </div>  
+                <!-- <div class="form-group mb-3">
+                  <input 
+                    type="file" 
+                    name="file"
+                    class="form-control"
+                    formControlName="file"
+                    value=""
+                    (change)="selectFile($event)"
+                  />
+                  <div class="col-4">
+                    <button class="btn btn-success btn-sm"
+                      [disabled]="!selectedFiles" 
+                      (click)="upload()">
+                      Upload
+                    </button>
+                  </div>
+                </div> -->
+                <p></p>
+                <div class="row">                 
+                    <button 
+                      type="submit" 
+                      class="btn btn-primary btn-sm btn-block"
+                      >{{title}}
+                    </button>
+                </div>
+              </form>
+              <app-popup class="nav-item"></app-popup>
+            </div>
+          </div>
+        </div>
+      </div>
+</ul>

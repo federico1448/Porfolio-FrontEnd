@@ -20,6 +20,11 @@ import { EducationItemComponent } from './components/common/education-item/educa
 import { ProyectoItemComponent } from './components/common/proyecto-item/proyecto-item.component';
 import { ProyectComponent } from './components/proyect/proyect.component';
 import { ExperienceItemComponent } from './components/common/experience-item/experience-item.component';
+import { ModalLoginComponent } from './components/common/modal-login/modal-login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AcordionLoginComponent } from './components/common/acordion-login/acordion-login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PopupComponent } from './components/common/popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +42,9 @@ import { ExperienceItemComponent } from './components/common/experience-item/exp
     ProyectoItemComponent,
     ProyectComponent,
     ExperienceItemComponent,
+    ModalLoginComponent,
+    AcordionLoginComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +52,8 @@ import { ExperienceItemComponent } from './components/common/experience-item/exp
     FontAwesomeModule,
     NgbModule,
     ModalModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     NgCircleProgressModule.forRoot({
       backgroundColor: "teal",
       backgroundPadding: 8,

@@ -1,0 +1,13 @@
+
+<!--<ngb-alert 
+[dismissible]="false"
+    class="centro"
+    #selfClosingAlert 
+    *ngIf="loginfail" 
+    type="danger" 
+    (closed)="loginresultado = ''">
+    {{loginresultado}} 
+</ngb-alert>
+-->
+<ngb-alert [dismissible]="false" #selfClosingAlert *ngIf="loginresultado" type="danger" (closed)="loginresultado = ''">{{ loginresultado }}
+</ngb-alert>
