@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class ProyectoService {
-  baseURL:string="http://localhost:8099/proyect";
+  baseURL:string="http://frozen-reaches-65007.herokuapp.com/proyect";
   private proyect:Subject<Proyects>=new Subject<Proyects>();
   constructor(
     private http: HttpClient

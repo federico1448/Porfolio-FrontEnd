@@ -7,7 +7,7 @@ import { HttpClient} from '@angular/common/http';
 })
 
 export class AuthService {
-  baseURL:string="http://localhost:8099/personas";
+  baseURL:string="http://frozen-reaches-65007.herokuapp.com/personas";
   private loginstatusvalue: Subject<boolean> = new Subject<boolean>();
   private loginissue: Subject<boolean> = new Subject<boolean>();
    

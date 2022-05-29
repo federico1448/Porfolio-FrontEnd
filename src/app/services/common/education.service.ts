@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class EducationService {
-  baseURL:string="http://localhost:8099/education";
+  baseURL:string="http://frozen-reaches-65007.herokuapp.com/education";
   private education:Subject<Education>=new Subject<Education>();
   deleteResponde:string="";
 
