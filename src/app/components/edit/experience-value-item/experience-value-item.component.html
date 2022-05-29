@@ -1,0 +1,52 @@
+<form
+    (submit)="submitModal()" 
+    [formGroup]="registerForm">
+    <label>Nombre</label>
+    <input 
+        id="name" 
+        type="text" 
+        class="form-control"  
+        formControlName="name"
+        value={{experienceItem.name}}
+        placeholder={{experienceItem.name}}
+    >
+    <hr/>
+    <label>Periodo</label>
+    <input 
+        id="period" 
+        type="text" 
+        class="form-control"  
+        formControlName="period"
+        value={{experienceItem.period}}
+        placeholder={{experienceItem.period}}
+    >
+    <hr/>
+    <label>Puesto</label>
+        <input 
+            id="puesto" 
+            type="text" 
+            class="form-control"  
+            formControlName="puesto"
+            value={{experienceItem.puesto}}
+            placeholder={{experienceItem.puesto}}
+        >
+        <hr/>
+        <label>Descripcion del Puesto</label>
+        <textarea 
+            id="desciption" 
+            type="text" 
+            class="form-control"  
+            formControlName="desciption"
+            value={{experienceItem.desciption}}
+            placeholder={{experienceItem.desciption}}
+            rows="4"
+        ></textarea>
+        <hr/>
+        <div class="d-flex justify-content-center ">
+        <button 
+            [ngStyle]="{'margin-top': '0.5rem'}"
+            type="submit" 
+            class="btn btn-success btn-sm btn-block"
+        >Actualizar</button>
+        </div>
+  </form>

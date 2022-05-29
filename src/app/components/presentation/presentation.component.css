@@ -7,3 +7,9 @@ img{
 div.test{
     margin-top:5rem;
 }
+
+.myicon{
+    color:green;
+    background-color:white;
+    max-width: 25%;
+}

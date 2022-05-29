@@ -1,0 +1,31 @@
+<form
+    (submit)="submitModal()" 
+    [formGroup]="registerForm">
+    <label>Nombre del Skill</label>
+    <input 
+        id="name" 
+        type="text" 
+        class="form-control"  
+        formControlName="name"
+        value={{skill.name}}
+        placeholder={{skill.name}}
+    >
+    <hr/>
+    <label>Porcentaje</label>
+    <input 
+        id="porcent" 
+        type="text" 
+        class="form-control"  
+        formControlName="porcent"
+        value={{skill.porcent}}
+        placeholder={{skill.porcent}}
+    >
+    <hr/>
+    <div class="d-flex justify-content-center ">
+    <button 
+        [ngStyle]="{'margin-top': '0.5rem'}"
+        type="submit" 
+        class="btn btn-success btn-sm btn-block"
+    >Actualizar</button>
+    </div>
+  </form>

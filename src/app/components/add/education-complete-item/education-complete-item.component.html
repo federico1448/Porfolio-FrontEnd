@@ -1,0 +1,50 @@
+<form
+    (submit)="submitModal()" 
+    [formGroup]="registerForm">
+    <label>Titulo obtenido</label>
+    <input 
+        id="name" 
+        type="text" 
+        class="form-control"  
+        formControlName="name"
+        placeholder="Titulo Obtenido"
+    >
+    <hr/>
+    <label>Entidad Educativa</label>
+    <input 
+        id="site" 
+        type="text" 
+        class="form-control"  
+        formControlName="site"
+        placeholder="Nombre de la institucion educativa"
+    >
+    <hr/>
+    <label>Año de Egreso</label>
+        <input 
+            id="year" 
+            type="text" 
+            class="form-control"  
+            formControlName="year"
+            placeholder="Año de Egreso"
+        >
+        <hr/>
+        <div>
+            <h6>Logo de la Institucion Educativa</h6>
+            <input 
+                type="file" 
+                style="display:none"
+                (change)="onFileSelected($event)"
+                #fileInput  
+                formControlName="file"  
+            >
+            <button type="button" (click)="fileInput.click()">Seleccionar Imagen</button>           
+        </div>
+        <hr/>
+        <div class="d-flex justify-content-center ">
+        <button 
+            [ngStyle]="{'margin-top': '0.5rem'}"
+            type="submit" 
+            class="btn btn-success btn-sm btn-block"
+        >Cargar Educacion</button>
+        </div>
+  </form>

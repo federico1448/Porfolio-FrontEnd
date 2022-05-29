@@ -2,5 +2,6 @@ export interface User {
   id?:number,
   name:string,
   description:string,
-  titulos:any[]
+  titulos:string[],
+  imagenperfil:string
   }

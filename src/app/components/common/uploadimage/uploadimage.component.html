@@ -1,0 +1,17 @@
+<div>
+    <h6>image</h6>
+    <input 
+        type="file" 
+        style="display:none"
+        (change)="onFileSelected($event)"
+        #fileInput    
+    >
+    <button type="button" (click)="fileInput.click()">Seleccionar Imagen</button>
+    <button type="button" (click)="upload()">Cargar Imagen</button>
+
+    <!--<button type="button" (click)="getImage()">Mostrar Imagen</button>-->
+    <div>
+        <img [src]='retrievedImage' />
+    </div>
+    
+</div>

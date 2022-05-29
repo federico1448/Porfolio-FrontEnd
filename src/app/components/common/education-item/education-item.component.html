@@ -1,8 +1,70 @@
 <div class="col-3">
-    <img src={{educacionvalue.logo}} *ngIf="educacionvalue.logo!=''">
+    <img [src]='educationLogo' *ngIf="educationLogo!=''">
+    <fa-stack class="mipuntero col-2 justify-content-center "
+    [style.display]="loginstatuscurrent ? 'block':'none'"
+    (click)="openModal(content2)"
+    size="lg">
+    <fa-icon class="ng-fa-icon fa-stack-2x" [icon]="faCircle" stackItemSize="2x" [ngStyle]="{'color':'black'}"></fa-icon>
+    <fa-icon class="ng-fa-icon fa-stack-1x fa-inverse" [icon]="faPen" stackItemSize="1x"></fa-icon>
+</fa-stack>
 </div>
-<div class="col-9">
+<div class="col-7">
     <p>{{educacionvalue.year}}</p>
     <h4>{{educacionvalue.name}}</h4>
     <p>{{educacionvalue.site}}</p>
 </div>
+<div class="col-2">
+    <fa-stack class="mipuntero"
+        [style.display]="loginstatuscurrent ? 'block':'none'"
+        (click)="openModal(content)"
+        size="lg">
+        <fa-icon class="ng-fa-icon fa-stack-2x" [icon]="faCircle" stackItemSize="2x" [ngStyle]="{'color':'black'}"></fa-icon>
+        <fa-icon class="ng-fa-icon fa-stack-1x fa-inverse" [icon]="faPen" stackItemSize="1x"></fa-icon>
+    </fa-stack>
+    <p [style.display]="loginstatuscurrent ? 'block':'none'"></p>
+    <fa-stack class="mipuntero"
+        [style.display]="loginstatuscurrent ? 'block':'none'"
+        (click)="deleteEducation(educacionvalue)"
+        size="lg">
+        <fa-icon class="ng-fa-icon fa-stack-2x" [icon]="faCircle" stackItemSize="2x" [ngStyle]="{'color':'black'}"></fa-icon>
+        <fa-icon class="ng-fa-icon fa-stack-1x fa-inverse" [icon]="faTimes" stackItemSize="1x"></fa-icon>
+    </fa-stack>
+</div>
+
+<ng-template #content2 let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Logo Educacion</h4>
+      <button type="button" class="btn-close" aria-label="Close" 
+      (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <app-uploadimage
+        [idvalue]=educacionvalue.id
+        [entidad]=education
+        ></app-uploadimage>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button type="button" class="btn btn-secondary btn-sm btn-block"
+       (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Educacion</h4>
+      <button type="button" class="btn-close" aria-label="Close" 
+      (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <app-education-value-item
+            [education]=educacionvalue
+        ></app-education-value-item>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button type="button" class="btn btn-secondary btn-sm btn-block"
+       (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>

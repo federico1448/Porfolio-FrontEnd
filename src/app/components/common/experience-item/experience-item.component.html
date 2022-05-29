@@ -1,8 +1,69 @@
 <div class="col-3">
-    <h6>{{expItem.periodo}}</h6>  
-    <img src={{expItem.logo}} *ngIf="expItem.logo !=''">
+    <h6>{{expItem.period}}</h6>  
+    <img [src]='imageLogo' *ngIf="imageLogo !=''">
+    <fa-stack class="mipuntero col-4 justify-content-center"
+        [style.display]="loginstatuscurrent ? 'block':'none'"
+        (click)="openModal(content2)"
+        size="lg">
+        <fa-icon class="ng-fa-icon fa-stack-2x" [icon]="faCircle" stackItemSize="2x" [ngStyle]="{'color':'black'}"></fa-icon>
+        <fa-icon class="ng-fa-icon fa-stack-1x fa-inverse" [icon]="faPen" stackItemSize="1x"></fa-icon>
+    </fa-stack>
 </div>
-<div class="col-9">
-    <h4>{{expItem.name}}</h4>
-    <p>{{expItem.desc}}</p>
+<div class="col-6">
+    <h4>{{expItem.name}} - Puesto: {{expItem.puesto}}</h4>
+    <p>Descripcion de las tareas: {{expItem.desciption}}</p>
 </div>
+<div class="col-3">
+    <fa-stack class="mipuntero"
+        [style.display]="loginstatuscurrent ? 'block':'none'"
+        (click)="openModal(content)"
+        size="lg">
+        <fa-icon class="ng-fa-icon fa-stack-2x" [icon]="faCircle" stackItemSize="2x" [ngStyle]="{'color':'black'}"></fa-icon>
+        <fa-icon class="ng-fa-icon fa-stack-1x fa-inverse" [icon]="faPen" stackItemSize="1x"></fa-icon>
+    </fa-stack>
+    <p [style.display]="loginstatuscurrent ? 'block':'none'" ></p>
+    <fa-stack class="mipuntero"
+        [style.display]="loginstatuscurrent ? 'block':'none'"
+        (click)="deleteExperience(expItem)"
+        size="lg">
+        <fa-icon class="ng-fa-icon fa-stack-2x" [icon]="faCircle" stackItemSize="2x" [ngStyle]="{'color':'black'}"></fa-icon>
+        <fa-icon class="ng-fa-icon fa-stack-1x fa-inverse" [icon]="faTimes" stackItemSize="1x"></fa-icon>
+    </fa-stack>
+</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Educacion</h4>
+      <button type="button" class="btn-close" aria-label="Close" 
+      (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <app-experience-value-item
+            [experienceItem]=expItem
+        ></app-experience-value-item>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button type="button" class="btn btn-secondary btn-sm btn-block"
+       (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+
+
+  <ng-template #content2 let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Logo Educacion</h4>
+      <button type="button" class="btn-close" aria-label="Close" 
+      (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <app-uploadimage
+        [idvalue]=expItem.id
+        [entidad]=experiencevalue
+        ></app-uploadimage>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button type="button" class="btn btn-secondary btn-sm btn-block"
+       (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>

@@ -1,8 +1,47 @@
 <div class="col-3">
     <h4>{{proyItem.name}}</h4>
 </div>
-<div class="col-9">
+<div class="col-7">
     <p>{{proyItem.date}}</p>
-    <h5>{{proyItem.desc}}</h5>
-    <p>{{proyItem.evidence}}</p>
+    <h5>{{proyItem.decription}}</h5>
+    <a href="{{proyItem.evidence}}" target="_blank">{{proyItem.evidence}}</a>
 </div>
+<div class="col-2">
+    <div class="container">
+        <div class="row">
+            <fa-stack class="mipuntero"
+                [style.display]="loginstatuscurrent ? 'block':'none'"
+                (click)="openModal(content)"
+                size="lg">
+                <fa-icon class="ng-fa-icon fa-stack-2x" [icon]="faCircle" stackItemSize="2x" [ngStyle]="{'color':'black'}"></fa-icon>
+                <fa-icon class="ng-fa-icon fa-stack-1x fa-inverse" [icon]="faPen" stackItemSize="1x"></fa-icon>
+            </fa-stack>
+            <p [style.display]="loginstatuscurrent ? 'block':'none'"></p>
+            <fa-stack class="mipuntero"
+                [style.display]="loginstatuscurrent ? 'block':'none'"
+                (click)="deleteProyect(proyItem)"
+                size="lg">
+                <fa-icon class="ng-fa-icon fa-stack-2x" [icon]="faCircle" stackItemSize="2x" [ngStyle]="{'color':'black'}"></fa-icon>
+                <fa-icon class="ng-fa-icon fa-stack-1x fa-inverse" [icon]="faTimes" stackItemSize="1x"></fa-icon>
+            </fa-stack>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Educacion</h4>
+      <button type="button" class="btn-close" aria-label="Close" 
+      (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <app-proyect-value-item
+            [proyectItem]=proyItem
+        ></app-proyect-value-item>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button type="button" class="btn btn-secondary btn-sm btn-block"
+       (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>

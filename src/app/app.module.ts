@@ -25,6 +25,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AcordionLoginComponent } from './components/common/acordion-login/acordion-login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PopupComponent } from './components/common/popup/popup.component';
+import { PresentationTitleItemComponent } from './components/common/presentation-title-item/presentation-title-item.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule} from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { EducationValueItemComponent } from './components/edit/education-value-item/education-value-item.component';
+import { ExperienceValueItemComponent } from './components/edit/experience-value-item/experience-value-item.component';
+import { UploadimageComponent } from './components/common/uploadimage/uploadimage.component';
+import { ProyectValueItemComponent } from './components/edit/proyect-value-item/proyect-value-item.component';
+import { SkillValueItemComponent } from './components/edit/skill-value-item/skill-value-item.component';
+import { ExperienceCompleteItemComponent } from './components/add/experience-complete-item/experience-complete-item.component';
+import { EducationCompleteItemComponent } from './components/add/education-complete-item/education-complete-item.component';
+import { ProyectCompleteItemComponent } from './components/add/proyect-complete-item/proyect-complete-item.component';
+import { SkillCompleteItemComponent } from './components/add/skill-complete-item/skill-complete-item.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +58,16 @@ import { PopupComponent } from './components/common/popup/popup.component';
     ModalLoginComponent,
     AcordionLoginComponent,
     PopupComponent,
+    PresentationTitleItemComponent,
+    EducationValueItemComponent,
+    ExperienceValueItemComponent,
+    UploadimageComponent,
+    ProyectValueItemComponent,
+    SkillValueItemComponent,
+    ExperienceCompleteItemComponent,
+    EducationCompleteItemComponent,
+    ProyectCompleteItemComponent,
+    SkillCompleteItemComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +77,9 @@ import { PopupComponent } from './components/common/popup/popup.component';
     ModalModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatIconModule,
     NgCircleProgressModule.forRoot({
       backgroundColor: "teal",
       backgroundPadding: 8,

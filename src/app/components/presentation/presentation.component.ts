@@ -1,9 +1,11 @@
 import { Component, OnInit,Input,Output} from '@angular/core';
 import { AuthService } from 'src/app/services/common/auth.service';
-import { Observable } from 'rxjs';
 import { User } from 'src/app/interfaces/user';
 import { PresentationService } from 'src/app/services/common/presentation.service';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faPen,faCircle } from '@fortawesome/free-solid-svg-icons';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UploadimageService } from 'src/app/services/common/uploadimage.service';
+
 
 @Component({
   selector: 'app-presentation',
@@ -12,44 +14,59 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 })
 
 export class PresentationComponent implements OnInit {
-  @Input() user:any;
-  name="Federico Nicolas Bitonte"
-  image="assets/foto.jpg";
-  desc="Resolución de problemas. Trabajo en equipo. Coordinación y administración."
-  titulos: any[]=[
-    "Full Stack Developer Jr.",
-    "Project manager.",
-    "Soporte administrativo.",
-    "Soporte de preventa."
-  ]
-  //@Input() loginfail:string='false';
-  loginstatus?:Observable<any>;
-  faTimes= faTimes;
+  retrievedImage:any;
+  loginstatus:boolean=false;
+  user!:User;
+  faTimes= faPen;
+  faCircle=faCircle;
+  perfil:string="fotoperfil"
+  idvalue:any;
   
 
   constructor(
-    private autenticadion:AuthService,
-    private presentationService:PresentationService
-  ) { }
+    private autenticadionService:AuthService,
+    private presentationService:PresentationService,
+    config: NgbModalConfig, 
+    private modalService: NgbModal,
+    private uploadService:UploadimageService,
+  ) { 
+    config.backdrop = 'static';
+    config.keyboard = false;
+  }
 
   ngOnInit(): void {
-    this.loginstatus=this.autenticadion.logintest();
-    this.loginstatus.subscribe( login=>{
-      console.log("login fue exitoso (PRESENTATION) "+ login)  
-      this.loginstatus=login})
-
     this.presentationService.getPresentation().subscribe(
       usuario=>{
         this.user=usuario;
-        console.log("resultado: "+usuario.name);
+        this.retrievedImage = 'data:image/jpeg;base64,' + usuario.imagenperfil;
+        this.idvalue=usuario.id;
+      }
+    );
+
+    //const val=35;
+    //this.uploadService.getFileFirst(val)
+    //  .subscribe(
+    //    res => {
+    //      this.retrievedImage = 'data:image/jpeg;base64,' + res.image;
+    //    }
+    //  );
+
+    this.autenticadionService.logintest().subscribe( login=>{
+      this.loginstatus=login})
+
+    
+    this.presentationService.userPresentationCurrent().subscribe(
+      usuario=>{
+        this.user.id=usuario.id;
+        this.user.name=usuario.name;
+        this.user.description=usuario.description;
+        this.user.titulos=usuario.titulos;
       }
     );
   }
 
-  editPresentation(user:User):void{
-    this.presentationService.editPresentation(user, this.user.id).subscribe( resul =>{
-      this.user=resul;
-    })
+  open(content:any,user:User) {
+    this.modalService.open(content);
   }
 
 

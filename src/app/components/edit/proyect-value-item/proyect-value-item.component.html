@@ -1,0 +1,53 @@
+<form
+    (submit)="submitModal()" 
+    [formGroup]="registerForm">
+    <label>Nombre del Proyecto</label>
+    <input 
+        id="name" 
+        type="text" 
+        class="form-control"  
+        formControlName="name"
+        value={{proyectItem.name}}
+        placeholder={{proyectItem.name}}
+    >
+    <hr/>
+    <label>Fecha de Entrega</label>
+    <input 
+        id="date" 
+        type="text" 
+        class="form-control"  
+        formControlName="date"
+        value={{proyectItem.date}}
+        placeholder={{proyectItem.date}}
+        >
+        <hr/>
+        <label>Descripcion del Proyecto</label>
+        <textarea 
+            id="decription" 
+            type="text" 
+            class="form-control"  
+            formControlName="decription"
+            value={{proyectItem.decription}}
+            placeholder={{proyectItem.decription}}
+            rows="4"
+        ></textarea>
+        <hr/>
+        <label>Evidencia del Proyecto</label>
+        <input 
+            id="evidence" 
+            type="text" 
+            class="form-control"  
+            formControlName="evidence"
+            value={{proyectItem.evidence}}
+            placeholder={{proyectItem.evidence}}
+        >
+        <hr/>
+        <div class="d-flex justify-content-center ">
+        <button 
+            [ngStyle]="{'margin-top': '0.5rem'}"
+            type="submit" 
+            class="btn btn-success btn-sm btn-block"
+        >Actualizar</button>
+        </div>
+  </form>
+

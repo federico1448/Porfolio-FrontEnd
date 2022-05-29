@@ -1,0 +1,57 @@
+<form
+    (submit)="submit()" 
+    [formGroup]="registerForm">
+    <label>Nombre</label>
+    <input 
+        id="username" 
+        type="text" 
+        class="form-control"  
+        formControlName="username"
+        value={{presentacion.name}}
+        placeholder={{presentacion.name}}
+    >
+    <hr/>
+    <label
+        [ngStyle]="{'margin-top': '0.5rem'}"
+    >Informacion Resumida</label>
+    <textarea 
+        id="inforesumida" 
+        type="text" 
+        class="form-control"  
+        formControlName="inforesumida"
+        rows="3"
+        value="{{presentacion.description}}"
+        placeholder={{presentacion.description}}
+    ></textarea>
+    <hr/>
+    <label
+    [ngStyle]="{'margin-top': '0.5rem'}"
+    >Titulos</label>
+    <div formArrayName="titulos" *ngFor="let titulo of titulos.controls; let i = index">
+        <div [formGroupName]="i">
+          <div class="form-group row"
+            [ngStyle]="{'margin-top': '0.5rem'}"
+            >
+            <div class="col-md-10">
+              <input type="text" [attr.id]="'descripcion' + i" class="form-control" formControlName="descripcion">
+            </div>
+            <div class="col-md-2">
+              <button class="btn btn-danger" (click)="removerTitulo(i)">-</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group d-flex justify-content-center "
+        [ngStyle]="{'margin-top': '0.5rem'}"
+        >
+        <a class="btn btn-primary" (click)="agregarTitulo()">+</a>
+      </div>
+      <hr/>
+      <div class="d-flex justify-content-center ">
+        <button 
+          [ngStyle]="{'margin-top': '0.5rem'}"
+          type="submit" 
+          class="btn btn-success btn-sm btn-block"
+        >Actualizar</button>
+      </div>
+  </form>

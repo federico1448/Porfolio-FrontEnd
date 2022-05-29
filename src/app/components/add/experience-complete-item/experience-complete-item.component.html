@@ -1,0 +1,60 @@
+<form
+    (submit)="submitModal()" 
+    [formGroup]="registerForm">
+    <label>Nombre</label>
+    <input 
+        id="name" 
+        type="text" 
+        class="form-control"  
+        formControlName="name"
+        placeholder="Nombre de la Empresa"
+    >
+    <hr/>
+    <label>Periodo</label>
+    <input 
+        id="period" 
+        type="text" 
+        class="form-control"  
+        formControlName="period"
+        placeholder="Periodo de Trabajo"
+    >
+    <hr/>
+    <label>Puesto</label>
+        <input 
+            id="puesto" 
+            type="text" 
+            class="form-control"  
+            formControlName="puesto"
+            placeholder="Puesto desempeñado"
+        >
+        <hr/>
+        <label>Descripcion del Puesto</label>
+        <textarea 
+            id="desciption" 
+            type="text" 
+            class="form-control"  
+            formControlName="desciption"
+            placeholder="Descripcion del Puesto"
+            rows="4"
+        ></textarea>
+        <hr/>
+        <div>
+            <h6>Logo de la Empresa</h6>
+            <input 
+                type="file" 
+                style="display:none"
+                (change)="onFileSelected($event)"
+                #fileInput  
+                formControlName="file"  
+            >
+            <button type="button" (click)="fileInput.click()">Seleccionar Imagen</button>           
+        </div>
+        <hr/>
+        <div class="d-flex justify-content-center ">
+        <button 
+            [ngStyle]="{'margin-top': '0.5rem'}"
+            type="submit" 
+            class="btn btn-success btn-sm btn-block"
+        >Cargar Experiencia</button>
+        </div>
+  </form>

@@ -1,0 +1,48 @@
+<form
+    (submit)="submitModal()" 
+    [formGroup]="registerForm">
+    <label>Titulo del Proyecto</label>
+    <input 
+        id="name" 
+        type="text" 
+        class="form-control"  
+        formControlName="name"
+        placeholder="titulo del proyecto"
+    >
+    <hr/>
+    <label>Fecha de Finalizacion</label>
+    <input 
+        id="date" 
+        type="text" 
+        class="form-control"  
+        formControlName="date"
+        placeholder="fecha de finalizacion"
+    >
+    <hr/>
+    <label>Descripcion del Proyecto</label>
+    <textarea 
+        id="decription" 
+        type="text" 
+        class="form-control"  
+        formControlName="decription"
+        placeholder="descripcion del proyecto"
+        rows="4"
+    ></textarea>
+    <hr/>
+    <label>Evidencia del Proyecto</label>
+    <input 
+        id="evidence" 
+        type="text" 
+        class="form-control"  
+        formControlName="evidence"
+        placeholder="url evidencia del proyecto"
+    >
+    <hr/>
+    <div class="d-flex justify-content-center ">
+    <button 
+        [ngStyle]="{'margin-top': '0.5rem'}"
+        type="submit" 
+        class="btn btn-success btn-sm btn-block"
+    >Cargar Proyecto</button>
+    </div>
+  </form>

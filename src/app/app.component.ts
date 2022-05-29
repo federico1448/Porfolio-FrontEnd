@@ -8,4 +8,5 @@ import { Component , Input} from '@angular/core';
 
 export class AppComponent {
   title = 'Mi Porfolio';
+  imagendeFondo="assets/fondo.jpeg";
 }

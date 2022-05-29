@@ -14,4 +14,42 @@
                          [lazy]="false"
         ></circle-progress>
     <p>{{skillvalue.name}}</p>
+    <div>
+        <div class="container">
+            <div class="row">
+                <fa-stack class="mipuntero col-6"
+                    [style.display]="loginstatuscurrent ? 'block':'none'"
+                    (click)="openModal(content)"
+                    size="lg">
+                    <fa-icon class="ng-fa-icon fa-stack-2x" [icon]="faCircle" stackItemSize="2x" [ngStyle]="{'color':'black'}"></fa-icon>
+                    <fa-icon class="ng-fa-icon fa-stack-1x fa-inverse" [icon]="faPen" stackItemSize="1x"></fa-icon>
+                </fa-stack>
+                <fa-stack class="mipuntero col-6"
+                    [style.display]="loginstatuscurrent ? 'block':'none'"
+                    (click)="deleteSkill(skillvalue)"
+                    size="lg">
+                    <fa-icon class="ng-fa-icon fa-stack-2x" [icon]="faCircle" stackItemSize="2x" [ngStyle]="{'color':'black'}"></fa-icon>
+                    <fa-icon class="ng-fa-icon fa-stack-1x fa-inverse" [icon]="faTimes" stackItemSize="1x"></fa-icon>
+                </fa-stack>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Educacion</h4>
+      <button type="button" class="btn-close" aria-label="Close" 
+      (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <app-skill-value-item
+            [skill]=skillvalue
+        ></app-skill-value-item>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button type="button" class="btn btn-secondary btn-sm btn-block"
+       (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>

@@ -1,0 +1,54 @@
+<form
+    (submit)="submitModal()" 
+    [formGroup]="registerForm">
+    <label>Nombre</label>
+    <input 
+        id="name" 
+        type="text" 
+        class="form-control"  
+        formControlName="name"
+        value={{education.name}}
+        placeholder={{education.name}}
+    >
+    <hr/>
+    <label>Entidad Educativa</label>
+    <input 
+        id="site" 
+        type="text" 
+        class="form-control"  
+        formControlName="site"
+        value={{education.site}}
+        placeholder={{education.site}}
+    >
+    <hr/>
+    <label>Fecha de Egreso</label>
+    <input 
+        id="year" 
+        type="text" 
+        class="form-control"  
+        formControlName="year"
+        value={{education.year}}
+        placeholder={{education.year}}
+    >
+<!--
+    <hr/>
+    <label>Logo</label>
+    <div>
+        <img [src]='logousado' />
+        
+        <input 
+        type="file" 
+        formControlName="logo"
+        (change)="onFileSelected($event)"
+        >
+    </div>
+-->
+    <hr/>
+    <div class="d-flex justify-content-center ">
+    <button 
+        [ngStyle]="{'margin-top': '0.5rem'}"
+        type="submit" 
+        class="btn btn-success btn-sm btn-block"
+    >Actualizar</button>
+    </div>
+  </form>

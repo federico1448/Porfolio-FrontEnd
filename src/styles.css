@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 div.mytema {
-    background-color: darkcyan;
+    /**background-color: darkcyan;*/
+    background-image: url('assets/fondo.jpg');
+    max-width: 100%; 
+    height:100%;
+    
+    
+}
+
+fa-stack.mipuntero{
+    cursor: pointer;
+}
+fa-icon.mipuntero{
+    cursor: pointer;
 }
